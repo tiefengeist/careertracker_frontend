@@ -81,10 +81,6 @@ class App extends Component {
     this.clearSelect()
   }
 
-  // componentDidMount() {
-  //   this.getMyData()
-  // }
-
   clearSelect = () => {
     console.log('hitting')
     if (this.state.selectedCreator) {
@@ -113,11 +109,6 @@ class App extends Component {
         creatorMovies: json
       })
     )
-
-    // this.state.myCreators.forEach((myCreator) => {
-    //   fetch(``)
-    // })
-
   }
 
   pickMovie = (ev, movie) => {
@@ -157,7 +148,6 @@ class App extends Component {
       username: uservalue,
       password: passwordvalue}
     }
-    // this.setState(data)
     if (passwordvalue === '') {alert('Enter a valid password')}
     fetchRequestInit('http://localhost:3000/api/v1/users/', 'post', data)
     .then(res => res.json())
@@ -180,21 +170,19 @@ class App extends Component {
     let data = {user : {
       username: uservalue,
       password: passwordvalue}
-    }
-    // this.setState(data)
+      }
     if (passwordvalue === '') {alert('Enter a valid password')}
-    fetchRequestInit('http://localhost:3000/api/v1/auth/', 'post', data)
-    .then(res => res.json())
-    .then(json =>
-      json.user ?
-      // console.log(json)
-      this.setState({
-        user: json.user,
-        token: json.jwt,
-        loggedIn: true
-    })
+        fetchRequestInit('http://localhost:3000/api/v1/auth/', 'post', data)
+        .then(res => res.json())
+        .then(json =>
+          json.user ?
+          this.setState({
+            user: json.user,
+            token: json.jwt,
+            loggedIn: true
+            })
     : alert('This user does not exist.')
-  )
+      )
   }
 
   logMeOut = () => {
@@ -233,55 +221,10 @@ class App extends Component {
     .then(json => console.log('fanpagepost'))
 
     this.setState({selectedCreator: ''})
-
-    //CREATES MOVIES AND CONTRACTS
-
-    // debugger;
-    //
-    // this.state.creatorMovies.cast.forEach((movie) => {
-    //   let content = {
-    //     id: movie.id,
-    //     name: movie.title,
-    //     year: movie.release_date ? movie.release_date.slice(0,4) : null,
-    //     summary: movie.overview,
-    //     poster_img: movie.poster_path
-    //   }
-    //
-    //   let contractData = {
-    //     user_id: this.state.user.id,
-    //     movie_id: movie.id,
-    //     creator_id: sc.id
-    //   }
-    //
-    //   let fetcher = () => fetchRequest(`http://localhost:3000/api/v1/contracts/`, 'post', contractData)
-    //     .then(res => res.json())
-    //     .then(json => console.log(json))
-    //
-    // if (this.state.creatorMovies.cast > 20) {
-    //
-    //   if(movie.popularity > 6) {
-    //     fetchRequest(`http://localhost:3000/api/v1/movies/`, 'post', content)
-    //     .then(() => {
-    //       fetcher()
-    //       }
-    //     )
-    //   }
-    // } else {
-    //   fetchRequest(`http://localhost:3000/api/v1/movies/`, 'post', content)
-    //   .then(() => {
-    //     fetcher()
-    //     }
-    //   )
-    // }
-    //
-    // })
-
-
   }
 
 
   render() {
-    // if (this.state.redirect === false) {
     return (
       <Router>
       <div className="App">
@@ -298,15 +241,8 @@ class App extends Component {
           </Switch>
           </div>
         </Router>
-
     )
-
-    //
-
-
   }
-
-
 }
 
 export default App;
@@ -337,5 +273,3 @@ function fetchRequestInit(URL, method, data={}) {
                   else if (method.toLowerCase() === 'post' && initial.body.id) delete initial.body.id;
                 return fetch(URL, initial);
 }
-
-//<Link to='./Creators'>  </Link>

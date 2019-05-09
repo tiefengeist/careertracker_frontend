@@ -5,20 +5,15 @@ import UserLogin from './UserLogin'
 import MovieDisplay from './MovieDisplay'
 import {BrowserRouter as Router, Route, Link, Redirect} from 'react-router-dom';
 
-// <MovieDisplay creatorMovies={this.props.creatorMovies} />
 class CreatorDisplay extends React.Component {
 
   componentWillUnmount() {
     this.props.toggleRedirect();
-
   }
 
 
   render() {
-
     let renderer;
-
-
 
         this.props.selectedCreator ?
 

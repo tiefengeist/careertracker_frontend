@@ -41,33 +41,9 @@ class Profile extends React.Component {
                                                 clearSelect={this.props.clearSelect}
                                                 creators={this.state.popularCreators}
                                                 user={this.props.user} />
-                                  </div>
-
-
+      </div>
     )
   }
-
 }
-
-// <div className="ui segment">
-//   <h4>{this.props.username}</h4>
-//
-// </div>
-//
-// <div id="trending-header" className="header"><h1>Trending Creators</h1></div> <TrendingCreatorDisplay
-//
-//                                         toggleSelectedMovie={this.props.toggleSelectedMovie}
-//                                         pickMovie={this.props.pickMovie}
-//                                         selectedMovie={this.props.selectedMovie}
-//                                         addCreator={this.props.addCreator}
-//                                         creatorMovies={this.props.creatorMovies}
-//                                         selectedCreator={this.props.selectedCreator}
-//                                         pickCreator={this.props.pickCreator}
-//                                         creators={this.state.popularCreators}/>
-//                           </div>
-
-
-
-
 
 export default Profile

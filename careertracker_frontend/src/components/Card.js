@@ -27,12 +27,4 @@ const Card = props => {
   )
 }
 
-// <p>
-//   {this.state.creators.map((creator, id) => {
-//     return   <Card creator={creator} id={id}/>
-//   })}
-// </p>
-
-
-// onClick ==> Pass down creator={props.creator}
 export default Card;
