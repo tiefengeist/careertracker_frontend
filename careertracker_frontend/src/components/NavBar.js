@@ -17,6 +17,7 @@ class NavBar extends React.Component{
   <Link to='/MyCreators'>
     <a onClick={() => this.props.toggleMyCreatorFalse()} className="item">My Creators</a>
   </Link>
+
   <div className="right menu">
     <div className="item">
       <div className="ui icon input">

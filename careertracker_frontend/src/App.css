@@ -99,6 +99,19 @@
   color: black;
 }
 
+#logoimg {
+  padding-top: 3px;
+  height: 58px;
+}
+
+#logintext {
+  color: white;
+}
+
+#summarytext {
+  color: black;
+}
+
 input[type="text"] {
   width: 1000px;
 }
