@@ -10,19 +10,25 @@ class NoteMovie extends React.Component {
     }
   }
 
+  handleChange(e) {
+    let change = {}
+    change[e.target.name] = e.target.value
+    this.setState(change)
+  }
+
 
   getContract = () => {
     fetchRequest(`http://localhost:3000/api/v1/contracts/currentmovie`, 'post', {user_id: this.props.user.id, creator_id: this.props.selectedCreator.id, movie_id: this.props.movie.id}, this.props.token)
     .then(res => res.json())
     .then(json => {
-      this.setState({contractForNotes: json})
+      this.setState({contractForNotes: json, comment: json.film_comment})
       }
     )
   }
 
   submitChanges = (ev) => {
     ev.preventDefault();
-    console.log(typeof ev.target.commentContent.value)
+    // console.log(typeof ev.target.commentContent.value)
     let commentContent = ev.target.commentContent.value
     fetchRequest(`http://localhost:3000/api/v1/contracts/${this.state.contractForNotes.id}`, 'put', {film_comment: commentContent}, this.props.token)
     .then(res => res.json())
@@ -33,13 +39,22 @@ class NoteMovie extends React.Component {
     this.getContract()
   }
 
+  componentDidUpdate() {
+    this.getContract()
+  }
+
 
   render() {
     let imageUrl =`https://image.tmdb.org/t/p/w500` + this.props.movie.poster_path
     return (
     <div className="ui container">
       <div className="ui segment">
-        <div className="ui black two row grid">
+        <div className="ui black three row grid">
+          <div className="ui centered row">
+          <div className="ui centered button icon" onClick={(ev) => this.props.toggleSelectedNoteMovie(ev)}>
+            Go Back
+          </div>
+          </div>
           <div className="ui row">
             <div className="ui three column grid ">
               <div className="ui grid column">
@@ -62,14 +77,26 @@ class NoteMovie extends React.Component {
                 </div>
               </div>
               <div className="ui grid column six wide">
-              <textarea value={this.state.contractForNotes.film_comment} type="text" rows="15"></textarea>
+                <h4 className="ui header" id="textbox">
+                  Your Notes
+                </h4>
+                <div className="ui raised segment" id="notedisplay">
+                  <div className="content" id="mynotes">{this.state.contractForNotes.film_comment}</div>
+                </div>
+
               </div>
             </div>
           </div>
           <div className="ui centered row">
-            <div className="ui centered button icon" onClick={(ev) => this.props.toggleSelectedNoteMovie(ev)}>
-              Go Back
-            </div>
+            <form className="ui form" onSubmit={ev => this.submitChanges(ev)}>
+                <div className="fields">
+                  <div className="field" ><label id="textbox">
+                    Alter Your Notes
+                  </label><textarea width="500px" name="commentContent" placeholder={this.state.contractForNotes.film_comment} rows="9"></textarea></div>
+                  <button class="ui button" type="submit">Submit</button>
+                </div>
+            </form>
+
           </div>
         </div>
       </div>
@@ -95,10 +122,3 @@ function fetchRequest(URL, method, data={}, authorizer) {
                   else if (method.toLowerCase() === 'post' && initial.body.id) delete initial.body.id
                 return fetch(URL, initial);
 }
-
-// <form className="ui form" onSubmit={ev => this.submitChanges(ev)}>
-//     <div className="fields">
-//     <div className="field" label='notes' name="commentContent"><label>Your Notes on {this.props.selectedCreator.name} in {this.props.movie.title}</label> <textarea name="commentContent" placeholder={this.state.contractForNotes.film_comment} rows="12"></textarea></div>
-//       <div className="field"><input type="submit" value="Update"></input></div>
-//     </div>
-// </form>

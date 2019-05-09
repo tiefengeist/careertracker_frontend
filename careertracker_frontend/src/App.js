@@ -32,12 +32,14 @@ class App extends Component {
   .then(json =>
     this.setState({
     creators: json['results']
-  }))
-
-
+    }))
   }
 
-
+  unSelectCreator = () => {
+    this.setState({
+      selectedCreator: ''
+    })
+  }
 
   toggleMyCreator = () => {
     this.setState({
@@ -233,8 +235,8 @@ class App extends Component {
           <Switch>
             <header className="App-header">
 
-              <Route exact path='/' component={() => <LandingPage token={this.state.token} clearSelect={this.clearSelect} toggleRedirect={this.toggleRedirect} toggleSelectedMovie={this.toggleSelectedMovie} pickMovie={this.pickMovie} selectedMovie={this.state.selectedMovie} addCreator={this.addCreator} findYourUser={this.findYourUser} selectedCreator={this.state.selectedCreator} pickCreator={this.pickCreator} redirect={this.state.redirect} getFilteredData={this.getFilteredData} creatorMovies={this.state.creatorMovies} user={this.state.user} logMeIn={this.logMeIn} loggedIn={this.state.loggedIn} creators={this.state.creators} />}/>
-              <Route path= '/Creators' component={() =>   <div className="ui segment"><CreatorDisplay token={this.state.token} user={this.state.user} clearSelect={this.clearSelect} toggleRedirect={this.toggleRedirect} toggleSelectedMovie={this.toggleSelectedMovie} pickMovie={this.pickMovie} selectedMovie={this.state.selectedMovie} addCreator={this.addCreator} creatorMovies={this.state.creatorMovies} selectedCreator={this.state.selectedCreator} pickCreator={this.pickCreator} creators={this.state.creators}/></div>}/>
+              <Route exact path='/' component={() => <LandingPage token={this.state.token} clearSelect={this.clearSelect} toggleRedirect={this.toggleRedirect} toggleSelectedMovie={this.toggleSelectedMovie} pickMovie={this.pickMovie} selectedMovie={this.state.selectedMovie} addCreator={this.addCreator} findYourUser={this.findYourUser} unSelectCreator={this.unSelectCreator} selectedCreator={this.state.selectedCreator} pickCreator={this.pickCreator} redirect={this.state.redirect} getFilteredData={this.getFilteredData} creatorMovies={this.state.creatorMovies} user={this.state.user} logMeIn={this.logMeIn} loggedIn={this.state.loggedIn} creators={this.state.creators} />}/>
+              <Route path= '/Creators' component={() =>   <div className="ui segment"><CreatorDisplay token={this.state.token} user={this.state.user} clearSelect={this.clearSelect} toggleRedirect={this.toggleRedirect} toggleSelectedMovie={this.toggleSelectedMovie} pickMovie={this.pickMovie} selectedMovie={this.state.selectedMovie} addCreator={this.addCreator} unSelectCreator={this.unSelectCreator} creatorMovies={this.state.creatorMovies} selectedCreator={this.state.selectedCreator} pickCreator={this.pickCreator} creators={this.state.creators}/></div>}/>
               <Route path= '/MyCreators' component={() =>   <div className="ui segment"><div id="trending-header" className="header"><h1>Your Creators</h1></div><MyCreatorDisplay token={this.state.token} myCreatorsToggle={this.state.myCreatorsToggle} toggleMyCreator={this.toggleMyCreator} user={this.state.user} getFilteredData={this.getFilteredData} toggleRedirect={this.toggleRedirect} myCreatorMovies={this.state.creatorMovies} selectedCreator={this.state.selectedCreator} redirect={this.state.redirect} myCreators={this.state.myCreators}/></div>}/>
               <Route path= '/Logout' component={() => <div><LoggedOut logMeOut={this.logMeOut} /></div>}/>
             </header>

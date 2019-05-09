@@ -29,6 +29,8 @@ class MyMoviePage extends React.Component {
               }
             )
             .then(this.props.toggleSelectedMovie)
+
+            this.props.unSelectCreator()
   }
 
   render() {
@@ -61,12 +63,17 @@ class MyMoviePage extends React.Component {
               <h4 className="ui header" id="textbox">
                 Notes on this Performance
               </h4>
-              <form className="ui form" onSubmit={ev => this.persistNotes(ev)}>
-                  <div className="fields">
-                    <div className="field" ><input type="textarea" rows="16" name="film_comment" placeholder="Notes..."></input></div>
-                    <div className="field"><input type="submit"  value="Submit"></input></div>
-                  </div>
-              </form>
+
+
+                <form className="ui form" onSubmit={ev => this.persistNotes(ev)}>
+                    <div className="fields">
+                      <div className="field" ><textarea width="700px" name="film_comment" placeholder="Notes..." rows="9"></textarea></div>
+                      <button class="ui button" type="submit">Submit</button>
+                    </div>
+                </form>
+
+
+
             </div>
             <div className="ui grid column seven wide">
             </div>
@@ -83,6 +90,14 @@ class MyMoviePage extends React.Component {
     )
   }
 }
+
+
+// <form className="ui form" onSubmit={ev => this.persistNotes(ev)}>
+//     <div className="fields">
+//       <div className="field" ><input type="textarea" rows="16" name="film_comment" placeholder="Notes..."></input></div>
+//       <div className="field"><input type="submit"  value="Submit"></input></div>
+//     </div>
+// </form>
 
 export default MyMoviePage;
 

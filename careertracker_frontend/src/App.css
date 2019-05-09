@@ -91,6 +91,14 @@
   color: black;
 }
 
+#notedisplay {
+  white-space: pre-wrap;
+}
+
+#mynotes {
+  color: black;
+}
+
 input[type="text"] {
   width: 1000px;
 }

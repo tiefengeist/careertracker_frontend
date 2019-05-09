@@ -41,6 +41,12 @@ class MyCreatorDisplay extends React.Component {
     // this.setState({selectedCreator: ''})
   }
 
+  unSelectCreator = () => {
+    this.setState({
+      selectedCreator: ''
+    })
+  }
+
   pickMovie = (ev, movie) => {
 
     fetch(`https://api.themoviedb.org/3/movie/${movie.id}?api_key=8c047ad16f4adffe431f0282012d22bc&language=en-US`)
@@ -105,9 +111,6 @@ class MyCreatorDisplay extends React.Component {
     })
   }
 
-//this.setState({
-  //myCreators: json
-//})
   componentDidMount() {
     window.scrollTo(0,0);
     this.getMyData();
@@ -129,20 +132,16 @@ class MyCreatorDisplay extends React.Component {
 
       :
 
-        this.state.selectedCreator /*&& this.props.myCreatorsToggle */
-         ?
+        this.state.selectedCreator
 
-        //
+         ?
 
           renderer =
           <div className="ui segment inverted white">
             <MyCreatorPage pickMovieNote={this.pickMovieNote} creatorNoteContracts={this.state.creatorNoteContracts} selectedMovie={this.state.selectedMovie} creator={this.state.selectedCreator} creatorMovies={this.state.creatorMovies}/>
-            {this.state.creatorMovies ? <MyMovieDisplay token={this.props.token} toggleSelectedNoteMovie={this.toggleSelectedNoteMovie} selectedCreator={this.state.selectedCreator} user={this.props.user} selectedMovie={this.state.selectedMovie} toggleSelectedMovie={this.toggleSelectedMovie} pickMovie={this.pickMovie} creatorMovies={this.state.creatorMovies} /> : null}
+            {this.state.creatorMovies ? <MyMovieDisplay unSelectCreator={this.unSelectCreator} token={this.props.token} toggleSelectedNoteMovie={this.toggleSelectedNoteMovie} selectedCreator={this.state.selectedCreator} user={this.props.user} selectedMovie={this.state.selectedMovie} toggleSelectedMovie={this.toggleSelectedMovie} pickMovie={this.pickMovie} creatorMovies={this.state.creatorMovies} /> : null}
           </div>
 
-
-
-      //
            :
 
           renderer =

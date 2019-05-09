@@ -58,7 +58,7 @@ class MyMovieDisplay extends React.Component {
 
    }
      else {
-       renderer = <MyMoviePage token={this.props.token} selectedCreator={this.props.selectedCreator} user={this.props.user} movie={this.props.selectedMovie} toggleSelectedMovie={this.props.toggleSelectedMovie} />
+       renderer = <MyMoviePage unSelectCreator={this.props.unSelectCreator} token={this.props.token} selectedCreator={this.props.selectedCreator} user={this.props.user} movie={this.props.selectedMovie} toggleSelectedMovie={this.props.toggleSelectedMovie} />
             }
 
 
