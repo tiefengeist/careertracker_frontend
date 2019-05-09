@@ -23,7 +23,13 @@
   color: #61dafb;
 }
 
-#nav {
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: black;
+  opacity: 1; /* Firefox */
+}
+
+
+/* #nav {
   position: fixed;
   top: 0;
   left: 0;
@@ -46,9 +52,48 @@
   font-weight: bold;
   color: #069;
   border-right: 1 px solid #ccc;
+} */
+
+.card-in-creatordisplay {
+  padding: 10px;
 }
 
+.card-in-mycreatordisplay {
+  padding: 10px;
+}
 
+.ui.bio {
+  color: black;
+}
+
+.eq-card.ui.card {
+  flex: 1;
+  flex-basis: 0;
+}
+
+.ui.add-button {
+  color: black;
+}
+
+.creatorName {
+  color: black;
+}
+
+#trending-header {
+  color: black;
+}
+
+#textbox {
+  color: black;
+}
+
+#moviedescriptor {
+  color: black;
+}
+
+input[type="text"] {
+  width: 1000px;
+}
 
 @keyframes App-logo-spin {
   from {
