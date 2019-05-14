@@ -130,7 +130,7 @@ class App extends Component {
   }
 
   pickMyCreator = (ev, creator) => {
-    fetch(`https://frozen-reef-22763.herokuapp.com/creators/${creator.id}`)
+    fetch(`http://localhost:3000/creators/${creator.id}`)
     .then(res => res.json())
     .then(json =>
       this.setState({
@@ -151,7 +151,7 @@ class App extends Component {
       password: passwordvalue}
     }
     if (passwordvalue === '') {alert('Enter a valid password')}
-    fetchRequestInit('https://frozen-reef-22763.herokuapp.com/api/v1/users/', 'post', data)
+    fetchRequestInit('http://localhost:3000/api/v1/users/', 'post', data)
     .then(res => res.json())
     .then(json =>
       json.user ?
@@ -174,7 +174,7 @@ class App extends Component {
       password: passwordvalue}
       }
     if (passwordvalue === '') {alert('Enter a valid password')}
-        fetchRequestInit('https://frozen-reef-22763.herokuapp.com/api/v1/auth/', 'post', data)
+        fetchRequestInit('http://localhost:3000/api/v1/auth/', 'post', data)
         .then(res => res.json())
         .then(json =>
           json.user ?
@@ -214,11 +214,11 @@ class App extends Component {
       creator_id: sc.id
     }
     this.setState(creatorData)
-    fetchRequest(`https://frozen-reef-22763.herokuapp.com/api/v1/creators`, 'post', creatorData, this.state.token)
+    fetchRequest(`http://localhost:3000/api/v1/creators`, 'post', creatorData, this.state.token)
     .then(res => res.json())
     .then(json => console.log(json))
 
-    fetchRequest(`https://frozen-reef-22763.herokuapp.com/api/v1/fan_pages`, 'post', fanPageData, this.state.token)
+    fetchRequest(`http://localhost:3000/api/v1/fan_pages`, 'post', fanPageData, this.state.token)
     .then(res => res.json())
     .then(json => console.log('fanpagepost'))
 

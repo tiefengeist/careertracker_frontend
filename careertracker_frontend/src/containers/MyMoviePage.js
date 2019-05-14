@@ -19,11 +19,11 @@ class MyMoviePage extends React.Component {
         film_comment: ev.target.film_comment.value
       }
 
-        let fetcher = () => fetchRequest(`https://frozen-reef-22763.herokuapp.com/api/v1/contracts/`, 'post', contractData, this.props.token)
+        let fetcher = () => fetchRequest(`http://localhost:3000/api/v1/contracts/`, 'post', contractData, this.props.token)
           .then(res => res.json())
           .then(json => console.log(json))
 
-          fetchRequest(`https://frozen-reef-22763.herokuapp.com/api/v1/movies/`, 'post', content, this.props.token)
+          fetchRequest(`http://localhost:3000/api/v1/movies/`, 'post', content, this.props.token)
             .then(() => {
               fetcher()
               }

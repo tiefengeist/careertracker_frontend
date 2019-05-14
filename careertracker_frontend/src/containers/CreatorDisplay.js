@@ -7,6 +7,10 @@ import {BrowserRouter as Router, Route, Link, Redirect} from 'react-router-dom';
 
 class CreatorDisplay extends React.Component {
 
+  componentDidMount() {
+    window.scrollTo(0,0);
+  }
+
   componentWillUnmount() {
     this.props.toggleRedirect();
   }
