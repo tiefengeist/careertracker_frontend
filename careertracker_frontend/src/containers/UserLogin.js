@@ -31,7 +31,7 @@ class UserLogin extends React.Component {
             <div className="ui centered row">
               <h2 className="ui centered header">About</h2>
               <div className="content" id="summarytext">
-CreatorNote is a web app made for film buffs to take detailed notes on creators’ individual contributions to movies. Using data from tMDB (the Movie Database), you can explore the filmographies of movie industry figures from the start of their careers up to the present. <br></br>
+CareerNote is a web app made for film buffs to take detailed notes on creators’ individual contributions to movies. Using data from tMDB (the Movie Database), you can explore the filmographies of movie industry figures from the start of their careers up to the present. <br></br>
 
 If you have thoughts on any of these creators, you can add them to a list, where you can engage with their careers further. If you navigate to the ‘My Creators’ page, and just click on any of the movies you see there, you can take notes on their contribution to any film they’ve been in.<br></br>
 
@@ -69,7 +69,7 @@ Enjoy!
             <div className="ui centered row">
               <h2 className="ui centered header">About</h2>
               <div className="content" id="summarytext">
-    CreatorNote is a web app made for film buffs to take detailed notes on creators’ individual contributions to movies. Using data from tMDB (the Movie Database), you can explore the filmographies of movie industry figures from the start of their careers up to the present. <br></br>
+    CareerNote is a web app made for film buffs to take detailed notes on creators’ individual contributions to movies. Using data from tMDB (the Movie Database), you can explore the filmographies of movie industry figures from the start of their careers up to the present. <br></br>
 
     If you have thoughts on any of these creators, you can add them to a list, where you can engage with their careers further. If you navigate to the ‘My Creators’ page, and just click on any of the movies you see there, you can take notes on their contribution to any film they’ve been in.<br></br>
 
