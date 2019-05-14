@@ -78,7 +78,7 @@ class CreatorPage extends React.Component {
       }
 
   getMyData = () => {
-    fetchRequest(`http://localhost:3000/api/v1/creators/currentuser`, 'post', {user_id: this.props.user.id}, this.props.token)
+    fetchRequest(`https://frozen-reef-22763.herokuapp.com/api/v1/creators/currentuser`, 'post', {user_id: this.props.user.id}, this.props.token)
     .then(res => res.json())
     .then(json => {
       this.setState({myCreators: json}, () => {this.findOverlap()})
