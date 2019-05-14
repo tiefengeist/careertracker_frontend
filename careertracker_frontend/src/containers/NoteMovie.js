@@ -18,7 +18,7 @@ class NoteMovie extends React.Component {
 
 
   getContract = () => {
-    fetchRequest(`http://localhost:3000/api/v1/contracts/currentmovie`, 'post', {user_id: this.props.user.id, creator_id: this.props.selectedCreator.id, movie_id: this.props.movie.id}, this.props.token)
+    fetchRequest(`https://frozen-reef-22763.herokuapp.com/api/v1/contracts/currentmovie`, 'post', {user_id: this.props.user.id, creator_id: this.props.selectedCreator.id, movie_id: this.props.movie.id}, this.props.token)
     .then(res => res.json())
     .then(json => {
       this.setState({contractForNotes: json, comment: json.film_comment})
@@ -30,7 +30,7 @@ class NoteMovie extends React.Component {
     ev.preventDefault();
     // console.log(typeof ev.target.commentContent.value)
     let commentContent = ev.target.commentContent.value
-    fetchRequest(`http://localhost:3000/api/v1/contracts/${this.state.contractForNotes.id}`, 'put', {film_comment: commentContent}, this.props.token)
+    fetchRequest(`https://frozen-reef-22763.herokuapp.com/api/v1/contracts/${this.state.contractForNotes.id}`, 'put', {film_comment: commentContent}, this.props.token)
     .then(res => res.json())
     .then(json => console.log(json))
   }

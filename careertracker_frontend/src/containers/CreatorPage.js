@@ -22,7 +22,6 @@ class CreatorPage extends React.Component {
                   fetch(`https://api.themoviedb.org/3/discover/movie?api_key=8c047ad16f4adffe431f0282012d22bc&language=en-US&with_cast=${this.props.creator.id},${myCreator.id}`)
                   .then(res => res.json())
                   .then(json => {
-                    console.log(newArray)
                     let tempObj = {collaborator: myCreator, movies: json.results};
 
                     if (tempObj.movies.length > 0) {
@@ -78,7 +77,7 @@ class CreatorPage extends React.Component {
       }
 
   getMyData = () => {
-    fetchRequest(`http://localhost:3000/api/v1/creators/currentuser`, 'post', {user_id: this.props.user.id}, this.props.token)
+    fetchRequest(`https://frozen-reef-22763.herokuapp.com/api/v1/creators/currentuser`, 'post', {user_id: this.props.user.id}, this.props.token)
     .then(res => res.json())
     .then(json => {
       this.setState({myCreators: json}, () => {this.findOverlap()})
